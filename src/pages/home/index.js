@@ -1,10 +1,13 @@
 import React from 'react';
+import Header from '../../components/Header';
+import Cards from '../../components/Cards';
 // import GamesContext from '../../context/gamesContext';
 
 function Home() {
   return (
     <div>
-      <h1>HOME</h1>
+      <Header />
+      <Cards />
     </div>
   );
 }
