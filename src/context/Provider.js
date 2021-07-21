@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import GamesContext from './gamesContext';
 
 function Provider({ children }) {
-  const test = 'DIEGO';
+  const test = 'DIEGOss';
 
   const valueProvider = {
     test,
