@@ -1,4 +1,5 @@
 import React from 'react';
+// import GamesContext from '../../context/gamesContext';
 
 function Home() {
   return (

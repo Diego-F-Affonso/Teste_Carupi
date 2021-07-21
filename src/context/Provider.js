@@ -1,12 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import api from '../services/api';
 import GamesContext from './gamesContext';
 
 function Provider({ children }) {
-  const test = 'DIEGO';
+  const [games, setGames] = useState();
+
+  const fetchGames = async () => {
+    await api
+      .get('games')
+      .then((response) => setGames(response.data.results))
+      .catch((err) => console.error(`ops! ocorreu um erro${err}`));
+  };
 
   const valueProvider = {
-    test,
+    games,
+    fetchGames,
   };
 
   return (
