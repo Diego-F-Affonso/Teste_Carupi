@@ -4,19 +4,20 @@ import GamesContext from '../../context/gamesContext';
 import './index.css';
 
 function Cards() {
-  const { games, fetchGames } = useContext(GamesContext);
+  const { games, fetchGames, page } = useContext(GamesContext);
 
   useEffect(() => {
     fetchGames();
-  }, []);
+    window.scrollTo(0, 0);
+  }, [page]);
 
   return (
-    <div className={'card' || 'test'}>
+    <div className="card">
       <div className="card-header">Games</div>
       <ul className="list-group list-group-flush">
         {games &&
-          games.map(({ name, released, rating }) => (
-            <li className="list-group-item">
+          games.map(({ name, released, rating, id }) => (
+            <li className="list-group-item" key={id}>
               <div className="card w-75">
                 <div className="card-body">
                   <h5 className="card-title">{name}</h5>
@@ -24,7 +25,7 @@ function Cards() {
                     Rating: {rating}
                     <br /> Released: {released}
                   </p>
-                  <a href="games1" className="btn btn-primary">
+                  <a href={`game${id}`} className="btn btn-primary">
                     Details
                   </a>
                 </div>
