@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   return (
     <Switch>
-      <Route path="/game:id" component={GameDetail} />
+      <Route path="/games/:id" component={GameDetail} />
       <Route exact path="/" component={Home} />
     </Switch>
   );

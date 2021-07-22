@@ -1,12 +1,13 @@
 import React from 'react';
-// import Header from '../../components/Header';
+import Header from '../../components/Header';
 import Cards from '../../components/Cards';
 import Pagination from '../../components/Pagination';
 
 function Home() {
   return (
     <div>
-      {/* <Header /> */}
+      <Header />
+      <Pagination />
       <Cards />
       <Pagination />
     </div>

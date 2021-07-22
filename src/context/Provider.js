@@ -5,6 +5,7 @@ import GamesContext from './gamesContext';
 
 function Provider({ children }) {
   const [games, setGames] = useState();
+  const [game, setGame] = useState();
   const [page, setPage] = useState(1);
   // const [disabledPrevius, setDisabledPrevius] = useState(true)
 
@@ -12,6 +13,14 @@ function Provider({ children }) {
     await api
       .get('games', { params: { page } })
       .then((response) => setGames(response.data.results))
+      // eslint-disable-next-line no-console
+      .catch((err) => console.error(`ops! ocorreu um erro${err}`));
+  };
+
+  const fetchDetailsGames = async (id) => {
+    await api
+      .get(`games/${id}`)
+      .then((response) => setGame(response.data))
       // eslint-disable-next-line no-console
       .catch((err) => console.error(`ops! ocorreu um erro${err}`));
   };
@@ -35,6 +44,8 @@ function Provider({ children }) {
     page,
     setPage,
     previousPage,
+    fetchDetailsGames,
+    game,
   };
 
   return (

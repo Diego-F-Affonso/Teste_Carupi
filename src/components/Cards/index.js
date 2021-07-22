@@ -1,6 +1,5 @@
 import React, { useContext, useEffect } from 'react';
 import GamesContext from '../../context/gamesContext';
-// import { Navbar } from 'react-bootstrap';
 import './index.css';
 
 function Cards() {
@@ -11,6 +10,7 @@ function Cards() {
     window.scrollTo(0, 0);
   }, [page]);
 
+  if (!games) return <h1>Carregando...</h1>;
   return (
     <div className="card">
       <div className="card-header">Games</div>
@@ -25,7 +25,7 @@ function Cards() {
                     Rating: {rating}
                     <br /> Released: {released}
                   </p>
-                  <a href={`game${id}`} className="btn btn-primary">
+                  <a href={`games/${id}`} className="btn btn-primary">
                     Details
                   </a>
                 </div>
